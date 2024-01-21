@@ -1,0 +1,7 @@
+  - name: création du répertoire /test/fichier.txt
+    file:
+      path: /test/fichier.txt
+      state: touch
+      owner: root
+      group: root
+      mode: 0755

@@ -1,6 +1,6 @@
 ---
-- name: update
-  hosts: 31.220.75.23
+- name: apt update
+  hosts: all
   tasks:
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:

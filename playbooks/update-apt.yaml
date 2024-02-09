@@ -1,7 +1,10 @@
 ---
-- name: Update and upgrade apt packages
-  hosts: all 
+- name: localhost demo
+  hosts: localhost
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
   tasks:
-    - name: Update packages with apt
+    - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:
         update_cache: yes

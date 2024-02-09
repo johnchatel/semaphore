@@ -1,9 +1,6 @@
 ---
-- name: localhost demo
-  hosts: localhost
-  vars:
-    ansible_connection: local
-    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+- name: update
+  hosts: contabo
   tasks:
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:

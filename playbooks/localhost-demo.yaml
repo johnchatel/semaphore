@@ -5,6 +5,6 @@
     ansible_connection: local
     ansible_python_interpreter: "{{ ansible_playbook_python }}"
   tasks:
-    - name: print hostname
-      ansible.bultin.debug:
-        msg: "{{ inventory_hostname }}"
+    - name: Print hostname
+      ansible.builtin.debug:
+        msg: System {{ inventory_hostname }}

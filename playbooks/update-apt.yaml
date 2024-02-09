@@ -3,11 +3,5 @@
   hosts: all 
   tasks:
     - name: Update packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      apt:
-        update_cache: yes
-
-    - name: Upgrade packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      apt:
-        upgrade: dist
+      ansible.builtin.apt:
+      update_cache: yes

@@ -1,12 +1,13 @@
 ---
-- name: Lister les fichiers dans un répertoire spécifique
+- name: Déclenchement des tâches Mautic
   hosts: infomaniak
   gather_facts: no
   tasks:
-    - name: Lister les fichiers dans /sites/m.digitalstories.com
-      ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/cron.php
-      register: result
+    - name: Mise à jour des segments
+      ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:segments:update
 
-    - name: Afficher les résultats
-      ansible.builtin.debug:
-        msg: "{{ result.stdout_lines }}"
+    - name: Mise à jour des campagnes
+      ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:campaigns:rebuild
+
+    - name: Déclenchement des campagnes
+      ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:campaigns:rebuild

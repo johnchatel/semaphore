@@ -17,4 +17,4 @@
 
     - name: Afficher les résultats
       ansible.builtin.debug:
-        msg: "{{ result.stdout_lines }}"
+        msg: "{{ results.stdout_lines }}"

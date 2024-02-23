@@ -1,6 +1,6 @@
 ---
 - name: Lister les fichiers dans un répertoire spécifique
-  hosts: vos_serveurs
+  hosts: infomaniak
   tasks:
     - name: Lister les fichiers dans /sites/m.digitalstories.com
       ansible.builtin.shell: ls /sites/m.digitalstories.com

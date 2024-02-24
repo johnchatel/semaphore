@@ -1,0 +1,12 @@
+---
+- name: Exécuter une tâche sur le serveur local
+  hosts: localhost
+  become: yes  # Utilisez cette option si vous avez besoin de privilèges d'administration pour votre tâche.
+  tasks:
+    - name: Créer un fichier texte dans /tmp
+      ansible.builtin.copy:
+        content: "Ceci est un fichier test créé par Ansible sur le serveur local.\n"
+        dest: "/tmp/fichier_test_ansible.txt"
+        owner: root
+        group: root
+        mode: '0644'

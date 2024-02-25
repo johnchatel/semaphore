@@ -1,0 +1,12 @@
+- name: Mettre à jour tous les packages sur un serveur Ubuntu/Debian
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Mise à jour de la liste des packages
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600 # Met à jour le cache si sa dernière mise à jour date de plus d'une heure
+
+    - name: Mise à niveau de tous les packages vers la dernière version
+      ansible.builtin.apt:
+        upgrade: dist

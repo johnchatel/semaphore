@@ -5,7 +5,7 @@
   tasks:
     - name: Mise à jour des segments
       ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:segments:update
-      register: results
+      register: result
     
     - name: Résultat de la mise à jour des segments
       debug:
@@ -13,7 +13,7 @@
 
     - name: Mise à jour des campagnes
       ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:campaigns:rebuild
-      register: results
+      register: result
       
     - name: Résultat de la mise à jour des campagnes
       debug:
@@ -21,7 +21,7 @@
 
     - name: Déclenchement des campagnes
       ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:campaigns:trigger
-      register: results
+      register: result
       
     - name: Résultat du déclenchement des campagnes
       debug:
@@ -29,7 +29,7 @@
 
     - name: Mise à jour des segments
       ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:segments:update
-      register: results
+      register: result
       
     - name: Résultat de la mise à jour des segments
       debug:

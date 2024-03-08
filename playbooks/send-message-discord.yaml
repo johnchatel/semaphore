@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+    # Send Discord message when reboot is required
+    - name: Send Discord message
+      uri:
+        url: "https://automation.digitalstories.cloud/webhook-test/0c86c713-7ddd-408f-bb52-36e1b05508d3"
+        method: POST
+        body_format: json
+        body: '{"content": "Reboot required on {{ inventory_hostname }}"}'
+        headers:
+          Content-Type: application/json
+        status_code: 204

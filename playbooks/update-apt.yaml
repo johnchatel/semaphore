@@ -15,6 +15,10 @@
         upgrade: dist
       register: upgrade_result
 
+    - name: Get current time
+      ansible.biltIn.set_fact:
+        current_time: "{{ ansible_date_time.date }} {{ ansible_date_time }}"
+
     # Send Discord message when reboot is required
     - name: Send Discord message
       uri:
@@ -23,7 +27,8 @@
         body_format: json
         body: 
           content: |
-            Contabo server :
+            ⏰ {{ current_time }}
+            🛠️ Maintenance Contabo server :
             Mise à jour des paquets: {{ update_result.changed | ternary('effectué', 'non nécessaire') }},
             Mise à niveau des paquets: {{ upgrade_result.changed | ternary('effectué', 'non nécessaire') }}.
         headers:

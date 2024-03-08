@@ -1,7 +1,2 @@
-  - name: création du répertoire /test/fichier.txt
-    file:
-      path: /test/fichier.txt
-      state: touch
-      owner: root
-      group: root
-      mode: 0755
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote
+  ansible.builtin.shell: echo hello >> test.txt

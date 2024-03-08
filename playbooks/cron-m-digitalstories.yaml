@@ -34,3 +34,6 @@
     - name: Résultat de la mise à jour des segments
       debug:
         var: result.stdout
+    - import_tasks: send-message-discord.yaml
+      vars:
+      message: "Tâches CRON executées pour m.digitalstories.com"

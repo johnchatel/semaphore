@@ -35,6 +35,7 @@
       debug:
         var: result.stdout
         
-    - import_tasks: send-message-discord.yaml
+    - name: Notifier Discord
+      include: send-message-discord.yaml
       vars:
-      message: "Tâches CRON executées pour m.digitalstories.com"
+        message: "Tâches CRON executées pour m.digitalstories.com"

@@ -27,8 +27,8 @@
         body_format: json
         body: 
           content: |
-            {{ current_time }}
-            Maintenance Contabo server :
+            ⏰ { current_time }}
+            🛠️ Contabo server [31.220.75.23] :
             Mise à jour des paquets: {{ update_result.changed | ternary('effectué', 'non nécessaire') }},
             Mise à niveau des paquets: {{ upgrade_result.changed | ternary('effectué', 'non nécessaire') }}.
         headers:

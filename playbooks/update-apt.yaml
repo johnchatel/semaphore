@@ -17,7 +17,7 @@
 
     - name: Get current time
       ansible.builtin.set_fact:
-        current_time: "{{ ansible_date_time.date }} {{ ansible_date_time }}"
+        current_time: "{{ ansible_date_time.date }} {{ ansible_date_time.time }}"
 
     # Send Discord message when reboot is required
     - name: Send Discord message
@@ -27,7 +27,7 @@
         body_format: json
         body: 
           content: |
-            ⏰ { current_time }}
+            ⏰ {{ current_time }}
             🛠️ Contabo server [31.220.75.23] :
             Mise à jour des paquets: {{ update_result.changed | ternary('effectué', 'non nécessaire') }},
             Mise à niveau des paquets: {{ upgrade_result.changed | ternary('effectué', 'non nécessaire') }}.

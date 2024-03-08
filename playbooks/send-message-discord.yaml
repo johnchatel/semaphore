@@ -3,7 +3,7 @@
     # Send Discord message when reboot is required
     - name: Send Discord message
       uri:
-        url: "https://automation.digitalstories.cloud/webhook-test/0c86c713-7ddd-408f-bb52-36e1b05508d3"
+        url: "https://automation.digitalstories.cloud/webhook/0c86c713-7ddd-408f-bb52-36e1b05508d3"
         method: POST
         body_format: json
         body: '{"content": "Reboot required on {{ inventory_hostname }}"}'

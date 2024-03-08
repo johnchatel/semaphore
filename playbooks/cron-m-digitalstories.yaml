@@ -3,6 +3,15 @@
   hosts: infomaniak
   gather_facts: no
   tasks:
+
+    - name: Mise à jour des infos geo
+      ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:iplookup:download
+      register: result
+
+    - name: Résultat de la mise à jour des infos geo
+      debug:
+        var: result.stdout
+
     - name: Mise à jour des segments
       ansible.builtin.shell: php-8.0 /home/clients/bd21b4f6400fa6615dcdc469405ed03b/sites/m.digitalstories.com/bin/console mautic:segments:update
       register: result

@@ -7,11 +7,13 @@
       when: ansible_pkg_mgr == 'apt'
       ansible.builtin.apt:
         update_cache: true
+      register: update_result
 
     - name: Upgrade packages with apt
       when: ansible_pkg_mgr == 'apt'
       ansible.builtin.apt:
         upgrade: dist
+      register: upgrade_result
 
     # Send Discord message when reboot is required
     - name: Send Discord message
@@ -19,7 +21,11 @@
         url: "{{ discord_webhook_url }}"
         method: POST
         body_format: json
-        body: '{"content": "Update du server contabo effectuée"}'
+        body: 
+          content: |
+            Contabo server :
+            Mise à jour des paquets: {{ update_result.changed | ternary('effectué', 'non nécessaire') }},
+            Mise à niveau des paquets: {{ upgrade_result.changed | ternary('effectué', 'non nécessaire') }}.
         headers:
           Content-Type: application/json
         status_code: 204

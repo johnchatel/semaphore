@@ -1,2 +1,6 @@
+---
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-  ansible.builtin.shell: echo hello >> test.txt
+  host: all
+  tasks:
+   - name: test
+     ansible.builtin.shell: echo hello >> test.txt

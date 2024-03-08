@@ -9,7 +9,7 @@
         #url: "https://automation.digitalstories.cloud/webhook-test/0c86c713-7ddd-408f-bb52-36e1b05508d3"
         method: POST
         body_format: json
-        body: '{"content": "Hello"}'
+        body: '{"content": {{message}} }'
         headers:
           Content-Type: application/json
         status_code: 204

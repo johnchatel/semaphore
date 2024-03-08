@@ -16,7 +16,7 @@
       register: upgrade_result
 
     - name: Get current time
-      ansible.biltIn.set_fact:
+      ansible.builtIn.set_fact:
         current_time: "{{ ansible_date_time.date }} {{ ansible_date_time }}"
 
     # Send Discord message when reboot is required
